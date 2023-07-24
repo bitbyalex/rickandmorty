@@ -48,6 +48,9 @@ dependencies {
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
 
+    // Logging Interceptor
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.11'
+
     // Moshi
     implementation 'com.squareup.moshi:moshi-kotlin:1.15.0'
 
@@ -56,5 +59,8 @@ dependencies {
 
     // Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    // Retrofit + Coroutine
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
 
 }
