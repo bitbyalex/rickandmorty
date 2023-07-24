@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/characterImageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/characterNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Character Name"
+        android:layout_margin="8dp"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/characterImageView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/characterStatusTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status"
+        android:layout_margin="8dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/characterNameTextView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/characterOriginLabelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Origin"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/characterStatusTextView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/characterOriginTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="unknown"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/characterOriginLabelTextView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/characterSpeciesLabelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Species"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/characterOriginTextView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/characterSpeciesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="unknown"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/characterSpeciesLabelTextView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
