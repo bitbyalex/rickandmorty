@@ -3,11 +3,15 @@ package com.example.jul21mvvmrickandmorty
 class SharedRepository {
 
     suspend fun getCharacterById(characterId : Int) : GetCharacterByIdResponse?{
-        val response = NetworkLayer.apiClient.getCharacterById(characterId)
+        val request = NetworkLayer.apiClient.getCharacterById(characterId)
 
-        if (response.isSuccessful){
-            return response.body()!!
+        if (request.failed){
+            return null
         }
-        return null
+        if (!request.isSuccessful){
+            return null
+        }
+
+        return request.body
     }
 }
