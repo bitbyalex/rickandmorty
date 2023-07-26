@@ -1,4 +1,4 @@
-package com.example.jul21mvvmrickandmorty
+package com.example.jul21mvvmrickandmorty.network
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
