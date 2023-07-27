@@ -9,7 +9,7 @@ import com.example.jul21mvvmrickandmorty.R
 class CharacterListActivity : AppCompatActivity() {
 
     private val epoxyController = CharacterListEpoxyController()
-    val viewModel : CharactersViewModel by lazy {
+    private val viewModel : CharactersViewModel by lazy {
         ViewModelProvider(this)[CharactersViewModel::class.java]
     }
 
