@@ -1,11 +1,12 @@
 package com.example.jul21mvvmrickandmorty
 
+import com.example.jul21mvvmrickandmorty.domain.models.Character
+import com.example.jul21mvvmrickandmorty.domain.models.CharacterMapper
 import com.example.jul21mvvmrickandmorty.network.NetworkLayer
-import com.example.jul21mvvmrickandmorty.network.response.GetCharacterByIdResponse
 
 class SharedRepository {
 
-    suspend fun getCharacterById(characterId : Int) : GetCharacterByIdResponse?{
+    suspend fun getCharacterById(characterId : Int) : Character?{
         val request = NetworkLayer.apiClient.getCharacterById(characterId)
 
         if (request.failed){
@@ -15,6 +16,6 @@ class SharedRepository {
             return null
         }
 
-        return request.body
+        return CharacterMapper.buildFrom(request.body)
     }
 }
