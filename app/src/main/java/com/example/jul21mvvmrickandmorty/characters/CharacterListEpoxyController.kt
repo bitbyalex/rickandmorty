@@ -11,13 +11,15 @@ import com.example.jul21mvvmrickandmorty.network.response.GetCharacterByIdRespon
 import com.squareup.picasso.Picasso
 import java.util.Locale
 
-class CharacterListEpoxyController : PagedListEpoxyController<GetCharacterByIdResponse>() {
+class CharacterListEpoxyController(
+    private val onCharacterSelected: (Int) -> Unit
+) : PagedListEpoxyController<GetCharacterByIdResponse>() {
 
     override fun buildItemModel(
         currentPosition: Int,
         item: GetCharacterByIdResponse?
     ): EpoxyModel<*> {
-        return CharacterGridItemEpoxyModel(item!!.image , item.name).id(item.id)
+        return CharacterGridItemEpoxyModel(item!!.id, item.image , item.name, onCharacterSelected ).id(item.id)
     }
 
     override fun addModels(models: List<EpoxyModel<*>>) {
@@ -46,12 +48,18 @@ class CharacterListEpoxyController : PagedListEpoxyController<GetCharacterByIdRe
     }
 
     data class CharacterGridItemEpoxyModel(
+        val characterId : Int,
         val url : String,
-        val name: String
+        val name: String,
+        val onCharacterSelected: (Int) -> Unit
     ) : ViewBindingKotlinModel<ModelCharacterListItemBinding>(R.layout.model_character_list_item){
         override fun ModelCharacterListItemBinding.bind() {
             Picasso.get().load(url).into(characterImageView)
             characterNameTextView.text = name
+
+            root.setOnClickListener {
+                onCharacterSelected(characterId)
+            }
         }
     }
 

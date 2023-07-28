@@ -1,14 +1,17 @@
 package com.example.jul21mvvmrickandmorty.characters
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.airbnb.epoxy.EpoxyRecyclerView
+import com.example.jul21mvvmrickandmorty.Constants
+import com.example.jul21mvvmrickandmorty.MainActivity
 import com.example.jul21mvvmrickandmorty.R
 
 class CharacterListActivity : AppCompatActivity() {
 
-    private val epoxyController = CharacterListEpoxyController()
+    private val epoxyController = CharacterListEpoxyController(::onCharacterSelected)
     private val viewModel : CharactersViewModel by lazy {
         ViewModelProvider(this)[CharactersViewModel::class.java]
     }
@@ -22,6 +25,11 @@ class CharacterListActivity : AppCompatActivity() {
         }
 
         findViewById<EpoxyRecyclerView>(R.id.epoxyRecyclerView).setController(epoxyController)
+    }
 
+    private fun onCharacterSelected(characterId : Int){
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra(Constants.INTENT_EXTRA_CHARACTER_ID, characterId)
+        startActivity(intent)
     }
 }

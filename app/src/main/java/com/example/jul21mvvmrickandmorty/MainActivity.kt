@@ -1,6 +1,7 @@
 package com.example.jul21mvvmrickandmorty
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -19,6 +20,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setSupportActionBar(findViewById(R.id.my_toolbar))
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         viewModel.characterByIdResponseLiveData.observe(this) { response ->
             epoxyController.characterResponse = response
@@ -29,8 +32,19 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.refreshByCharacter(54)
+        val id = intent.getIntExtra(Constants.INTENT_EXTRA_CHARACTER_ID, 1)
+        viewModel.refreshByCharacter(id)
         val epoxyRecyclerView = findViewById<EpoxyRecyclerView>(R.id.epoxyRecyclerView)
         epoxyRecyclerView.setControllerAndBuildModels(epoxyController)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            android.R.id.home -> {
+                finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
