@@ -4,6 +4,7 @@ import com.airbnb.epoxy.EpoxyController
 import com.example.jul21mvvmrickandmorty.databinding.ModelCharacterDetailsDataPointBinding
 import com.example.jul21mvvmrickandmorty.databinding.ModelCharacterDetailsHeaderBinding
 import com.example.jul21mvvmrickandmorty.databinding.ModelCharacterDetailsImageBinding
+import com.example.jul21mvvmrickandmorty.domain.models.Character
 import com.example.jul21mvvmrickandmorty.epoxy.LoadingEpoxyModel
 import com.example.jul21mvvmrickandmorty.epoxy.ViewBindingKotlinModel
 import com.example.jul21mvvmrickandmorty.network.response.GetCharacterByIdResponse
@@ -19,7 +20,7 @@ class CharacterDetailsEpoxyController : EpoxyController() {
             }
         }
 
-    var characterResponse : GetCharacterByIdResponse? = null
+    var character : Character? = null
         set(value) {
             field = value
             if (field != null){
@@ -35,13 +36,13 @@ class CharacterDetailsEpoxyController : EpoxyController() {
             return
         }
 
-        if (characterResponse == null){
+        if (character == null){
             // todo error state
             return
         }
 
 
-        characterResponse?.let {
+        character?.let {
             // add header model
             HeaderEpoxyModel(
                 name = it.name,

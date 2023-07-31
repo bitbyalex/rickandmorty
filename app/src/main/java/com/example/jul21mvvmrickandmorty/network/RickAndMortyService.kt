@@ -2,6 +2,7 @@ package com.example.jul21mvvmrickandmorty.network
 
 import com.example.jul21mvvmrickandmorty.network.response.GetCharacterByIdResponse
 import com.example.jul21mvvmrickandmorty.network.response.GetCharacterPageResponse
+import com.example.jul21mvvmrickandmorty.network.response.GetEpisodeByIdResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -18,4 +19,15 @@ interface RickAndMortyService {
     suspend fun getCharactersPage(
         @Query("page") pageIndex : Int
     ) : Response<GetCharacterPageResponse>
+
+    @GET("episode/{episode-id}")
+    suspend fun getEpisodeById(
+        @Path("episode-id") episodeId : Int
+    ) : Response<GetEpisodeByIdResponse>
+
+    @GET("episode/{episode-range}")
+    suspend fun getEpisodeRange(
+        @Path("episode-range") episodeRange : String
+    ) : Response<List<GetEpisodeByIdResponse>>
+
 }

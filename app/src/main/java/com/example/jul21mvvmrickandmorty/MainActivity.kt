@@ -23,9 +23,9 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.my_toolbar))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        viewModel.characterByIdResponseLiveData.observe(this) { response ->
-            epoxyController.characterResponse = response
-            if (response == null) {
+        viewModel.characterByIdResponseLiveData.observe(this) { character ->
+            epoxyController.character = character
+            if (character == null) {
                 Toast.makeText(this@MainActivity, "Unsuccessful network call", Toast.LENGTH_SHORT)
                     .show()
                 return@observe

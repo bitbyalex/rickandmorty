@@ -1,8 +1,7 @@
-package com.example.jul21mvvmrickandmorty.network.response
+package com.example.jul21mvvmrickandmorty.domain.models
 
-data class GetCharacterByIdResponse(
-    val created: String,
-    val episode: List<String>,
+data class Character(
+    val episodeList: List<Episode> = listOf(),
     val gender: String,
     val id: Int,
     val image: String,
@@ -11,8 +10,6 @@ data class GetCharacterByIdResponse(
     val origin: Origin,
     val species: String,
     val status: String,
-    val type: String,
-    val url: String
 ){
     data class Location(
         val name: String,
