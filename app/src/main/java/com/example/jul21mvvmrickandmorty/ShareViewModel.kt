@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.jul21mvvmrickandmorty.domain.models.Character
-import com.example.jul21mvvmrickandmorty.network.response.GetCharacterByIdResponse
 import kotlinx.coroutines.launch
 
 class ShareViewModel : ViewModel() {

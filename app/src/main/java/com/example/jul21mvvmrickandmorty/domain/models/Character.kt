@@ -1,7 +1,7 @@
 package com.example.jul21mvvmrickandmorty.domain.models
 
 data class Character(
-    val episode: List<Episode>,
+    val episodeList: List<Episode> = listOf(),
     val gender: String,
     val id: Int,
     val image: String,
@@ -19,12 +19,5 @@ data class Character(
     data class Origin(
         val name: String,
         val url: String
-    )
-
-    data class Episode(
-        val id  : Int,
-        val name : String,
-        val air_date : String,
-        val episode : String
     )
 }
