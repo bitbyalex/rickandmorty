@@ -19,5 +19,12 @@
         android:id="@+id/characterDetailsFragment"
         android:name="com.example.jul21mvvmrickandmorty.CharacterDetailsFragment"
         android:label="fragment_character_details"
-        tools:layout="@layout/activity_character_details" />
+        tools:layout="@layout/activity_character_details" >
+
+        <argument
+            android:name="characterId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+
 </navigation>
