@@ -17,6 +17,7 @@ class SharedRepository {
         }
         val networkEpisodes = getEpisodesFromCharacterResponse(request.body)
 
+        Log.i("SharedRepository","networkEpisodes: $networkEpisodes")
         return CharacterMapper.buildFrom(
             response = request.body,
             episodes = networkEpisodes
@@ -28,7 +29,7 @@ class SharedRepository {
     ): List<GetEpisodeByIdResponse> {
         val episodeRange = characterResponse.episode.map {
             it.substring(startIndex = it.lastIndexOf("/") + 1)
-        }.joinToString(",")
+        }.toString()
         val request = NetworkLayer.apiClient.getEpisodeRange(episodeRange)
         Log.i("SharedRepository","request: $request")
         if (request.failed || !request.isSuccessful) {
