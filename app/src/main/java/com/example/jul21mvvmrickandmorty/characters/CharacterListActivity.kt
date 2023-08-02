@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.airbnb.epoxy.EpoxyRecyclerView
 import com.example.jul21mvvmrickandmorty.Constants
-import com.example.jul21mvvmrickandmorty.MainActivity
+import com.example.jul21mvvmrickandmorty.CharacterDetailsActivity
 import com.example.jul21mvvmrickandmorty.R
 
 class CharacterListActivity : AppCompatActivity() {
@@ -28,7 +28,7 @@ class CharacterListActivity : AppCompatActivity() {
     }
 
     private fun onCharacterSelected(characterId : Int){
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, CharacterDetailsActivity::class.java)
         intent.putExtra(Constants.INTENT_EXTRA_CHARACTER_ID, characterId)
         startActivity(intent)
     }
