@@ -9,16 +9,20 @@
     <fragment
         android:id="@+id/characterListFragment"
         android:name="com.example.jul21mvvmrickandmorty.CharacterListFragment"
-        android:label="fragment_character_list"
+        android:label="Rick and Morty Characters"
         tools:layout="@layout/activity_character_list" >
         <action
             android:id="@+id/action_characterListFragment_to_characterDetailsFragment"
-            app:destination="@id/characterDetailsFragment" />
+            app:destination="@id/characterDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/characterDetailsFragment"
         android:name="com.example.jul21mvvmrickandmorty.CharacterDetailsFragment"
-        android:label="fragment_character_details"
+        android:label="Character Details"
         tools:layout="@layout/activity_character_details" >
 
         <argument
