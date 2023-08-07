@@ -32,5 +32,10 @@
             app:argType="integer"
             android:defaultValue="-1" />
     </fragment>
+    <fragment
+        android:id="@+id/episodeListFragment"
+        android:name="com.example.jul21mvvmrickandmorty.EpisodeListFragment"
+        android:label="All Episodes"
+        tools:layout="@layout/fragment_episode_list" />
 
 </navigation>
