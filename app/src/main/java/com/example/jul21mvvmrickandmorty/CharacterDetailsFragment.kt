@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.airbnb.epoxy.EpoxyRecyclerView
 
@@ -33,8 +34,11 @@ class CharacterDetailsFragment : Fragment() {
         viewModel.characterByIdResponseLiveData.observe(viewLifecycleOwner) { character ->
             epoxyController.character = character
             if (character == null) {
-                Toast.makeText(requireActivity(), "Unsuccessful network call", Toast.LENGTH_SHORT)
+                Toast.makeText(requireActivity(),
+                    "Unsuccessful network call",
+                    Toast.LENGTH_SHORT)
                     .show()
+                findNavController().navigateUp()
                 return@observe
             }
         }

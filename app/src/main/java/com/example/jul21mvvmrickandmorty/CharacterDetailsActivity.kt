@@ -26,7 +26,10 @@ class CharacterDetailsActivity : AppCompatActivity() {
         viewModel.characterByIdResponseLiveData.observe(this) { character ->
             epoxyController.character = character
             if (character == null) {
-                Toast.makeText(this@CharacterDetailsActivity, "Unsuccessful network call", Toast.LENGTH_SHORT)
+                Toast.makeText(
+                    this@CharacterDetailsActivity,
+                    "Unsuccessful network call",
+                    Toast.LENGTH_SHORT)
                     .show()
                 return@observe
             }
