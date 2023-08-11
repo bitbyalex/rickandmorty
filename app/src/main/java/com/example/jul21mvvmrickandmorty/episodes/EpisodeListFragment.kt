@@ -1,18 +1,15 @@
 package com.example.jul21mvvmrickandmorty.episodes
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.PagingData
 import com.airbnb.epoxy.EpoxyRecyclerView
 import com.example.jul21mvvmrickandmorty.R
-import com.example.jul21mvvmrickandmorty.characters.CharactersViewModel
-import com.example.jul21mvvmrickandmorty.domain.models.Episode
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -33,7 +30,7 @@ class EpisodeListFragment : Fragment() {
         val epoxyController = EpisodeListEpoxyController()
 
         lifecycleScope.launch {
-            viewModel.flow.collectLatest { pagingData : PagingData<Episode> ->
+            viewModel.flow.collectLatest { pagingData : PagingData<EpisodesUiModel> ->
                 epoxyController.submitData(pagingData)
             }
         }

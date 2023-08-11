@@ -8,9 +8,9 @@ import com.example.jul21mvvmrickandmorty.network.NetworkLayer
 
 class EpisodePagingSource(
     private val repository: EpisodeRepository
-) : PagingSource<Int,Episode>() {
+) : PagingSource<Int,EpisodesUiModel>() {
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Episode> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, EpisodesUiModel> {
         val pageNumber = params.key ?: 1
         val previousKey = if (pageNumber == 1) null else pageNumber - 1
 
@@ -21,13 +21,14 @@ class EpisodePagingSource(
         }
 
         return LoadResult.Page(
-            data = pageRequest.body.results.map { EpisodeMapper.buildFrom(it) },
+            data = pageRequest.body.results.map { response ->
+               EpisodesUiModel.Item(EpisodeMapper.buildFrom(response)) },
             prevKey = previousKey,
             nextKey = getPageIndexFromNext(pageRequest.body.info.next)
         )
     }
 
-    override fun getRefreshKey(state: PagingState<Int, Episode>): Int? {
+    override fun getRefreshKey(state: PagingState<Int, EpisodesUiModel>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             val anchorPage = state.closestPageToPosition(anchorPosition)
             anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
