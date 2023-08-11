@@ -1,6 +1,6 @@
 package com.example.jul21mvvmrickandmorty
 
-import android.util.Log
+import com.example.jul21mvvmrickandmorty.characters.SimpleMortyCache
 import com.example.jul21mvvmrickandmorty.domain.models.Character
 import com.example.jul21mvvmrickandmorty.domain.models.CharacterMapper
 import com.example.jul21mvvmrickandmorty.network.NetworkLayer

@@ -1,4 +1,4 @@
-package com.example.jul21mvvmrickandmorty
+package com.example.jul21mvvmrickandmorty.characters
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,10 +10,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.airbnb.epoxy.EpoxyRecyclerView
+import com.example.jul21mvvmrickandmorty.R
+import com.example.jul21mvvmrickandmorty.ShareViewModel
 
 class CharacterDetailsFragment : Fragment() {
 
-    private val viewModel :  ShareViewModel by lazy {
+    private val viewModel : ShareViewModel by lazy {
         ViewModelProvider(this)[ShareViewModel::class.java]
     }
 

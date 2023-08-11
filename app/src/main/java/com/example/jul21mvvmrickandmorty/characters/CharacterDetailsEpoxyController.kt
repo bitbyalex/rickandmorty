@@ -1,7 +1,8 @@
-package com.example.jul21mvvmrickandmorty
+package com.example.jul21mvvmrickandmorty.characters
 
 import com.airbnb.epoxy.CarouselModel_
 import com.airbnb.epoxy.EpoxyController
+import com.example.jul21mvvmrickandmorty.R
 import com.example.jul21mvvmrickandmorty.databinding.ModelCharacterDetailsDataPointBinding
 import com.example.jul21mvvmrickandmorty.databinding.ModelCharacterDetailsHeaderBinding
 import com.example.jul21mvvmrickandmorty.databinding.ModelCharacterDetailsImageBinding
