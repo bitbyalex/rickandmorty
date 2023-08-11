@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.airbnb.epoxy.EpoxyRecyclerView
 import com.example.jul21mvvmrickandmorty.Constants
-import com.example.jul21mvvmrickandmorty.CharacterDetailsActivity
 import com.example.jul21mvvmrickandmorty.R
 
 class CharacterListActivity : AppCompatActivity() {

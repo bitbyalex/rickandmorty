@@ -1,4 +1,4 @@
-package com.example.jul21mvvmrickandmorty
+package com.example.jul21mvvmrickandmorty.characters
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -6,11 +6,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.airbnb.epoxy.EpoxyRecyclerView
+import com.example.jul21mvvmrickandmorty.Constants
+import com.example.jul21mvvmrickandmorty.R
+import com.example.jul21mvvmrickandmorty.ShareViewModel
 
 
 class CharacterDetailsActivity : AppCompatActivity() {
 
-    private val viewModel :  ShareViewModel by lazy {
+    private val viewModel : ShareViewModel by lazy {
         ViewModelProvider(this)[ShareViewModel::class.java]
     }
 

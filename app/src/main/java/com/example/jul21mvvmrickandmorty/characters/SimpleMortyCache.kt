@@ -1,4 +1,4 @@
-package com.example.jul21mvvmrickandmorty
+package com.example.jul21mvvmrickandmorty.characters
 
 import com.example.jul21mvvmrickandmorty.domain.models.Character
 
